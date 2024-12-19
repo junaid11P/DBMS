@@ -30,7 +30,7 @@ async function deleteNotes() {
 
 function logout() {
   localStorage.removeItem("userId");
-  window.location.href = "page2.html";
+  window.location.href = "login.html";
 }
 
 fetchNotes();
