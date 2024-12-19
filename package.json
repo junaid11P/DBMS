@@ -1,0 +1,12 @@
+{
+  "name": "dbms",
+  "version": "1.0.0",
+  "description": "Project name is TextPad, which is used to store notes in online",
+  "main": "editor.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
