@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:3000";
+const BASE_URL = "http://localhost:3306";
 
 document.getElementById("login-form").addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -16,7 +16,7 @@ document.getElementById("login-form").addEventListener("submit", async (e) => {
     if (response.ok) {
       const { userId } = await response.json();
       localStorage.setItem("userId", userId);
-      window.location.href = "page3.html";
+      window.location.href = "editor.html";
     } else {
       document.getElementById("error-message").innerText = await response.text();
     }

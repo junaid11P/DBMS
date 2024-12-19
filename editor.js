@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:3000";
+const BASE_URL = "http://localhost:3306";
 const userId = localStorage.getItem("userId");
 
 async function fetchNotes() {
@@ -30,7 +30,7 @@ async function deleteNotes() {
 
 function logout() {
   localStorage.removeItem("userId");
-  window.location.href = "login.html";
+  window.location.href = "index.html";
 }
 
 fetchNotes();
