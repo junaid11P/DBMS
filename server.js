@@ -1,5 +1,5 @@
 import express from "express";
-import mysql from "mysql2";
+import mysql from "mysql2/promise";
 import bodyParser from "body-parser";
 import cors from "cors";
 import bcrypt from "bcrypt";
@@ -13,13 +13,14 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // MySQL Connection
-const db = mysql.createConnection({
+const db = await mysql.createConnection({
   host: "localhost",
   user: "root", // Update with your MySQL username
   password: "root2000", // Update with your MySQL password
   database: "textpad",
-  connectTimeout : 10000
+  connectTimeout: 20000
 });
+await db.connect();
 
 db.connect((err) => {
   if (err) {
