@@ -12,26 +12,25 @@ body {
   }
   
 
-  #loginh1{
+  #loginh1 {
     font-size: 4rem;
     font-weight: bold;
-    background: linear-gradient(to right,rgb(98, 42, 42),rgba(228, 227, 187, 0.843),rgb(98, 42, 42), rgb(98, 42, 42),rgba(219, 218, 149, 0.843), rgb(104, 46, 46),rgba(221, 221, 206, 0.843));
+    background: linear-gradient(to right, rgb(98, 42, 42), rgba(228, 227, 187, 0.843), rgb(98, 42, 42), rgb(98, 42, 42), rgba(219, 218, 149, 0.843), rgb(104, 46, 46), rgba(221, 221, 206, 0.843));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: bounce 2.5s linear infinite;
+    animation: animate-gradient 2.5s linear infinite;
     cursor: pointer;
-    
-  }
-  
-  @keyframes animate-gradient{
+}
+
+@keyframes animate-gradient {
     0%, 100% {
         transform: translateY(0);
-      }
-      50% {
+    }
+    50% {
         transform: translateY(-10px);
-      }
-  }
+    }
+}
   #loginh2{
     font-size: 1.8rem;
     font-weight: bold;
