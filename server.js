@@ -1,11 +1,12 @@
-const express = require("express");
-const mysql = require("mysql2");
-const bodyParser = require("body-parser");
-const cors = require("cors");
-const bcrypt = require("bcrypt");
+import express from "express";
+import mysql from "mysql2";
+import bodyParser from "body-parser";
+import cors from "cors";
+import bcrypt from "bcrypt";
+
 
 const app = express();
-const PORT = 3000;
+const PORT = 3306;
 
 // Middleware
 app.use(cors());
@@ -13,14 +14,18 @@ app.use(bodyParser.json());
 
 // MySQL Connection
 const db = mysql.createConnection({
-  host: "localhost",
+  host: "127.0.0.1",
   user: "root", // Update with your MySQL username
   password: "root2000", // Update with your MySQL password
   database: "textpad",
+  connectTimeout : 10000
 });
 
 db.connect((err) => {
-  if (err) throw err;
+  if (err) {
+    console.error('Error connecting to the database:', err.message);
+    return;
+  }
   console.log("Connected to MySQL!");
 });
 
@@ -87,3 +92,4 @@ app.delete("/notes/:userId", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
+

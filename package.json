@@ -9,7 +9,7 @@
     "start": "node server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "juned",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.1",
@@ -17,5 +17,13 @@
     "cors": "^2.8.5",
     "express": "^4.21.2",
     "mysql2": "^3.11.5"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/junaid11P/DBMS.git"
+  },
+  "bugs": {
+    "url": "https://github.com/junaid11P/DBMS/issues"
+  },
+  "homepage": "https://github.com/junaid11P/DBMS#readme"
 }
