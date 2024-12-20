@@ -9,21 +9,49 @@ body {
   justify-content: center;
   height: 100vh;
   background: linear-gradient(75deg, rgba(142, 141, 114, 0.843) 0%, rgb(104, 46, 46) 75%);
-  color: #fff;
 }
 
-/* INDEX PAGE - Text Animation */
+input, textarea, button {
+  margin: 10px;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+textarea {
+  width: 80%;
+  height: 300px;
+}
+
+button {
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Index Page Animation */
 .animated-text {
+  position: relative;
   text-align: center;
   font-size: 5rem;
   font-weight: bold;
-  position: relative;
+  color: #e9e0b4;
+  animation: fadeIn 5s ease-in-out;
+  cursor: pointer;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .animated-text h1 {
   position: absolute;
   color: #e9e0b4;
   transform: translate(-50%, -50%);
+  font-size: 5rem;
 }
 
 .animated-text h1:nth-child(1) {
@@ -45,13 +73,9 @@ body {
   }
 }
 
-/* LOGIN PAGE */
+/* Login Page */
 .login-container {
   text-align: center;
-  background: rgba(0, 0, 0, 0.6);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 #loginh1 {
@@ -61,47 +85,49 @@ body {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  animation: animate-gradient 2.5s linear infinite;
+  cursor: pointer;
+}
+
+@keyframes animate-gradient {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 #loginh2 {
   font-size: 1.8rem;
   font-weight: bold;
   color: rgb(214, 198, 177);
-  margin: 10px 0;
+  cursor: pointer;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-input[type="text"],
-input[type="password"] {
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form input {
   width: 80%;
   padding: 10px;
   margin: 10px 0;
   border-radius: 5px;
   border: 1px solid #ccc;
-  font-size: 1rem;
 }
 
-button {
-  padding: 10px 15px;
-  font-size: 1rem;
-  border: none;
+form button {
+  width: 50%;
+  padding: 10px;
+  margin-top: 20px;
   border-radius: 5px;
-  cursor: pointer;
-  background-color: #007BFF;
-  color: white;
-  transition: background-color 0.3s ease;
 }
 
-button:hover {
-  background-color: #0056b3;
-}
-
-#error-message {
-  color: red;
-  margin-top: 10px;
-  font-size: 0.9rem;
-}
-
-/* EDITOR PAGE */
+/* Editor Page */
 header {
   display: flex;
   justify-content: space-between;
@@ -120,13 +146,30 @@ header .file-info h2 {
   margin: 0;
 }
 
+header .button-group {
+  display: flex;
+  gap: 5px; /* Space between buttons */
+  margin-right: 100px; /*Add margin to move buttons slightly to the left */
+}
+
 header .button-group button {
-  margin-left: 10px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #007BFF;
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+header .button-group button:hover {
+  background-color: #0056b3;
 }
 
 .notes-container {
-  margin-top: 80px; /* To avoid overlap with fixed header */
+  margin-top: 80px; /* Avoid overlap with fixed header */
   width: 80%;
+  text-align: center;
 }
 
 textarea {
@@ -140,4 +183,9 @@ textarea {
   resize: none;
   background: #f7f7f7;
   color: #333;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: #007BFF;
 }

@@ -1,9 +1,9 @@
-const BASE_URL = "http://localhost:3306";
+const BASE_URL = "http://localhost:3000";
 const userId = localStorage.getItem("userId");
 const filename = localStorage.getItem("filename"); // Retrieve the filename
 
 document.getElementById("file-name").textContent = `File: ${filename}`;
-
+document.getElementById('error-message').textContent = 'Invalid credentials';
 async function fetchNotes() {
   const response = await fetch(`${BASE_URL}/notes/${userId}`);
   const data = await response.json();
