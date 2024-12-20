@@ -1,142 +1,143 @@
 /* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background: linear-gradient(75deg, rgba(142, 141, 114, 0.843) 0%, rgb(104, 46, 46)75%);
-  }
-  
-
-  #loginh1 {
-    font-size: 4rem;
-    font-weight: bold;
-    background: linear-gradient(to right, rgb(98, 42, 42), rgba(228, 227, 187, 0.843), rgb(98, 42, 42), rgb(98, 42, 42), rgba(219, 218, 149, 0.843), rgb(104, 46, 46), rgba(221, 221, 206, 0.843));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: animate-gradient 2.5s linear infinite;
-    cursor: pointer;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(75deg, rgba(142, 141, 114, 0.843) 0%, rgb(104, 46, 46) 75%);
+  color: #fff;
 }
 
-@keyframes animate-gradient {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
-}
-  #loginh2{
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: rgb(214, 198, 177);
-    cursor: pointer;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
-  }
-
-  /* Text Animation */
-  .animation-container, .login-container, .notes-container {
-    text-align: center;
-  }
-  
-  #animated-text {
-    position: relative;
-    font-size: 5rem;
-    font-weight: bold;
-    color: #e9e0b4;
-    cursor: pointer;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
-  }
-  .animated-text h1
-  {
-    position:absolute;
-    color: #e9e0b4;
-    transform: translate(-50%,-50%);
-    font-size: 5rem;
-  }
-  .animated-text h1:nth-child(1)
-  {
-    color: transparent;
-    -webkit-text-stroke: 2px #e2d7a8;
-  }
-  .animated-text h1:nth-child(2)
-  {
-    color: #7e3d3d;
-    animation: animate 5s ease-in-out;
-  }
-  
-  @keyframes animate {
-    0%, 100% {
-        clip-path: polygon(0 53%, 15% 52%, 31% 60%, 48% 66%, 68% 63%, 85% 60%, 100% 58%, 100% 99%, 0 100%);
-
-    }
-    50% {
-        clip-path: polygon(0 68%, 10% 69%, 35% 73%, 54% 71%, 67% 57%, 84% 55%, 100% 58%, 100% 99%, 0 100%);
-    }
-  }
-  
-  
-  input, textarea, button {
-    margin: 10px;
-    padding: 10px;
-    font-size: 1rem;
-  }
-  
-  textarea {
-    width: 80%;
-    height: 300px;
-  }
-  
-  button {
-    cursor: pointer;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 5px;
-  }
-  
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-
-  #form-container, #editor-container {
+/* INDEX PAGE - Text Animation */
+.animated-text {
   text-align: center;
+  font-size: 5rem;
+  font-weight: bold;
+  position: relative;
 }
 
-input, textarea, button {
-  margin: 10px;
+.animated-text h1 {
+  position: absolute;
+  color: #e9e0b4;
+  transform: translate(-50%, -50%);
+}
+
+.animated-text h1:nth-child(1) {
+  color: transparent;
+  -webkit-text-stroke: 2px #e2d7a8;
+}
+
+.animated-text h1:nth-child(2) {
+  color: #7e3d3d;
+  animation: animate 5s ease-in-out;
+}
+
+@keyframes animate {
+  0%, 100% {
+    clip-path: polygon(0 53%, 15% 52%, 31% 60%, 48% 66%, 68% 63%, 85% 60%, 100% 58%, 100% 99%, 0 100%);
+  }
+  50% {
+    clip-path: polygon(0 68%, 10% 69%, 35% 73%, 54% 71%, 67% 57%, 84% 55%, 100% 58%, 100% 99%, 0 100%);
+  }
+}
+
+/* LOGIN PAGE */
+.login-container {
+  text-align: center;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+#loginh1 {
+  font-size: 4rem;
+  font-weight: bold;
+  background: linear-gradient(to right, rgb(98, 42, 42), rgba(228, 227, 187, 0.843), rgb(98, 42, 42));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#loginh2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: rgb(214, 198, 177);
+  margin: 10px 0;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 80%;
   padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
   font-size: 1rem;
 }
 
-textarea {
-  width: 80%;
-  height: 300px;
-}
-
 button {
-  background-color: #007BFF;
-  color: #fff;
+  padding: 10px 15px;
+  font-size: 1rem;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  background-color: #007BFF;
+  color: white;
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
   background-color: #0056b3;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+#error-message {
+  color: red;
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+/* EDITOR PAGE */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px 20px;
+  background-color: #7e3d3d;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+header .file-info h2 {
+  margin: 0;
+}
+
+header .button-group button {
+  margin-left: 10px;
+}
+
+.notes-container {
+  margin-top: 80px; /* To avoid overlap with fixed header */
+  width: 80%;
+}
+
+textarea {
+  width: 100%;
+  height: calc(100vh - 120px);
+  margin: 0 auto;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  resize: none;
+  background: #f7f7f7;
+  color: #333;
 }

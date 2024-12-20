@@ -1,26 +1,43 @@
 const BASE_URL = "http://localhost:3306";
+const userId = localStorage.getItem("userId");
+const filename = localStorage.getItem("filename"); // Retrieve the filename
 
-document.getElementById("login-form").addEventListener("submit", async (e) => {
-  e.preventDefault();
+document.getElementById("file-name").textContent = `File: ${filename}`;
 
-  const filename = document.getElementById("filename").value;
-  const password = document.getElementById("password").value;
+async function fetchNotes() {
+  const response = await fetch(`${BASE_URL}/notes/${userId}`);
+  const data = await response.json();
+  document.getElementById("notes").value = data.content || "";
+}
 
-  try {
-    const response = await fetch(`${BASE_URL}/auth`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ filename, password }),
-    });
+async function saveNotes() {
+  const content = document.getElementById("notes").value;
 
-    if (response.ok) {
-      const { userId } = await response.json();
-      localStorage.setItem("userId", userId);
-      window.location.href = "editor.html";
-    } else {
-      document.getElementById("error-message").innerText = await response.text();
-    }
-  } catch (err) {
-    console.error("Error:", err);
-  }
-});
+  await fetch(`${BASE_URL}/notes`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ userId, content }),
+  });
+
+  alert("Notes saved!");
+}
+
+async function deleteNotes() {
+  const confirmed = confirm("Are you sure you want to delete your notes?");
+  if (!confirmed) return;
+
+  await fetch(`${BASE_URL}/notes/${userId}`, {
+    method: "DELETE",
+  });
+
+  alert("Notes deleted!");
+  document.getElementById("notes").value = "";
+}
+
+function logout() {
+  localStorage.removeItem("userId");
+  localStorage.removeItem("filename"); // Clear the filename
+  window.location.href = "index.html";
+}
+
+fetchNotes();

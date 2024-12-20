@@ -7,12 +7,18 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <header>
+    <div class="file-info">
+      <h2 id="file-name"></h2>
+    </div>
+    <div class="button-group">
+      <button onclick="saveNotes()">Save</button>
+      <button onclick="deleteNotes()">Delete</button>
+      <button onclick="logout()">Logout</button>
+    </div>
+  </header>
   <div class="notes-container">
-    <h2>Notes Editor</h2>
     <textarea id="notes" placeholder="Write your notes here..."></textarea>
-    <button onclick="saveNotes()">Save</button>
-    <button onclick="deleteNotes()">Delete</button>
-    <button onclick="logout()">Logout</button>
   </div>
   <script src="editor.js"></script>
 </body>
